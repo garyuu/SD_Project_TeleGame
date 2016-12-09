@@ -5,11 +5,24 @@
 	<title></title>
 	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.4.js">
     </script>
+     <style>
+        body,input { font-size: 9pt; }
+        #dCanvas,#dLine { clear: both; }
+        .option
+        {
+            float: left; width: 20px; height: 20px; border: 2px solid #cccccc;
+            margin-right: 4px; margin-bottom: 4px;
+        }
+        .active { border: 2px solid black; }
+        .lw { text-align: center; vertical-align: middle; }
+        img.output { border: 1px solid green; }
+        #cSketchPad { cursor: arrow; }
+    </style>
 	<script>
         $(function () {
             //產生不同顏色的div方格當作調色盤選項
             var colors =
-            "red;orange;yellow;green;blue;indigo;purple;black;white".split(';');
+            "black;white".split(';');
             var sb = [];
             $.each(colors, function (i, v) {
                 sb.push("<div class='option' style='background-color:" + v + "'></div>");
@@ -19,7 +32,7 @@
             sb = [];
             for (var i = 1; i <= 9; i++)
                 sb.push("<div class='option lw'>" +
-         "<div style='margin-top:#px;margin-left:#px;width:%px;height:%px'></div></div>"
+                "<div style='margin-top:#px;margin-left:#px;width:%px;height:%px'></div></div>"
                 .replace(/%/g, i).replace(/#/g, 10 - i / 2));
             $("#dLine").html(sb.join('\n'));
             var $clrs = $("#dPallete .option");
@@ -75,12 +88,14 @@
     </script>
 </head>
 <body>
-	<div id="dPallete"></div>
-	<div id="dLine"></div>
+	
 	<div id="dCanvas">
 		<canvas id="cSketchPad" width="300" height="300" style="border: 2px solid gray" />
 	</div>
-	<input type="button" id="bGenImage" value="Generate Image" />
+	<input type="button" id="bGenImage" value="送出" />
+    <div id="dPallete"></div>
+    <div id="dLine"></div>
+    <div id="write"></div> 
 	<div id="dOutput"></div>
 </body>
 </html>

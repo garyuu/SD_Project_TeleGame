@@ -3,12 +3,29 @@
 <head>
 	<meta charset="UTF-8">
 	<title>join a game</title>
-	
+	<style>
+		fieldset{
+			width: 200px;
+			
+		}
+		input{
+			margin: 1px 20%;
+			width: 60%;
+		}
+		input#name{
+			text-align: center;
+		}
+	</style>
 </head>
 <body>
-	<form action="">
-		enter your nickname:<input type="text" value="anonymous" /><br>
-		<input type="submit" value="join the game"/>
-	</form>
+	<fieldset>
+		<legend>你的暱稱</legend>
+		<form action="">
+			<input id="name" name="nickname" type="text" value="anonymous" /><br>
+			<input type="submit" value="加入遊戲"/>
+		</form>
+	</fieldset>
+		
+	
 </body>
 </html>
