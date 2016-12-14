@@ -18,10 +18,11 @@
         .active { border: 2px solid black; }
         .lw { text-align: center; vertical-align: middle; }
         img.output { border: 1px solid green; }
-        #cSketchPad { cursor: arrow; }
+        
     </style>
 	<script>
         $(function () {
+            /*
             //產生不同顏色的div方格當作調色盤選項
             var colors =
             "black".split(';');
@@ -46,6 +47,8 @@
                 p_color = this.style.backgroundColor;
             }).first().click();
             //點選線條粗細選項時切換焦點並取得寬度存入p_width
+            */
+            p_color = "black";
             p_width = 4;
             //取得canvas context
             var $canvas = $("#cSketchPad");
@@ -68,16 +71,19 @@
                     ctx.stroke();
                 }
             })
+            .mouseleave(function(e){
+                drawMode = false;
+            })
             .mouseup(function (e) {
                 drawMode = false;
             });
             //利用.toDataqURL()將繪圖結果轉成圖檔
-            $("#bGenImage").click(function () {
+            $("#send").click(function () {
                 $("#dOutput").html(
                 $("<img />", { src: $canvas[0].toDataURL(),
                     "class": "output"
                 }));
-                console.log($canvas[0].toDataURL());
+                $("#send").val("已送出!請等待其他玩家");
             });
             $("#clean").click(function(){
                 ctx.clearRect(0, 0, $canvas.width(), $canvas.height());
@@ -89,12 +95,13 @@
 	<div class="canvas" id="drawPart">
 		<canvas id="cSketchPad" width="400" height="300" style="border: 5px solid yellow" />
 	</div>
-	<input type="button" id="bGenImage" value="送出" />
+	<input type="button" id="send" value="送出" />
     <input type="button" id="clean" value="清除" />
-    <div style="float: left;" id="dPallete"></div>
+    <!--
+        <div style="float: left;" id="dPallete"></div>
+    -->
     <div class="canvas" id="writePart">
         <canvas id="SketchPad" width="400" height="300" style="border: 2px solid gray" />
     </div>
-	<div id="dOutput"></div>
 </body>
 </html>
