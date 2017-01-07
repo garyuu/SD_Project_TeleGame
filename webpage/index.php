@@ -1,5 +1,5 @@
 <?php
-require_once("function/ession_manager.php");
+require_once("function/session_manager.php");
 
 
 if($_COOKIE['stage']){
