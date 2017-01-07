@@ -1,3 +1,6 @@
+<?php
+require_once("play_game.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,32 +25,6 @@
     </style>
 	<script>
         $(function () {
-            /*
-            //產生不同顏色的div方格當作調色盤選項
-            var colors =
-            "black".split(';');
-            var sb = [];
-            $.each(colors, function (i, v) {
-                sb.push("<div class='option' style='background-color:" + v + "'></div>");
-            });
-            $("#dPallete").html(sb.join("\n"));
-            //產生不同尺寸的方格當作線條粗細選項
-            sb = [];
-            for (var i = 1; i <= 9; i++)
-                sb.push("<div class='option lw'>" +
-                "<div style='margin-top:#px;margin-left:#px;width:%px;height:%px'></div></div>"
-                .replace(/%/g, i).replace(/#/g, 10 - i / 2));
-            var $clrs = $("#dPallete .option");
-            
-            //點選調色盤時切換焦點並取得顏色存入p_color，
-            //同時變更線條粗細選項的方格的顏色
-            $clrs.click(function () {
-                $clrs.removeClass("active");
-                $(this).addClass("active");
-                p_color = this.style.backgroundColor;
-            }).first().click();
-            //點選線條粗細選項時切換焦點並取得寬度存入p_width
-            */
             p_color = "black";
             p_width = 4;
             //取得canvas context
@@ -97,11 +74,8 @@
 	</div>
 	<input type="button" id="send" value="送出" />
     <input type="button" id="clean" value="清除" />
-    <!--
-        <div style="float: left;" id="dPallete"></div>
-    -->
-    <div class="canvas" id="writePart">
-        <canvas id="SketchPad" width="400" height="300" style="border: 2px solid gray" />
+    <div class="showPic">
+        
     </div>
 </body>
 </html>
