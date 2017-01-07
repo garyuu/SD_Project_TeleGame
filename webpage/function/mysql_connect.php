@@ -8,11 +8,12 @@ class MySQLConnect{
     private $database;
     private $dbh;
 
-    function __construct(){
-        $this->host = DB_HOST;
-        $this->user = DB_USER;
-        $this->password = DB_PASSWORD;
-        $this->database = DB_NAME;
+    function __construct($host=DB_HOST, $user=DB_USER,
+                         $password=DB_PASSWORD, $database=DB_NAME){
+        $this->host = $host;
+        $this->user = $user;
+        $this->password = $password;
+        $this->database = $database;
         $this->dbh = sql_connect;
     }
 
@@ -20,6 +21,5 @@ class MySQLConnect{
         $dsn = 'mysql:host='.$this->host.';dbname='.$this->database;
         return new PDO($dsn, $this->user, $this->password);
     }
-    
 }    
 ?>
