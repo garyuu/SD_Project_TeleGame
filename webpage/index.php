@@ -2,13 +2,12 @@
 require_once("function/session_manager.php");
 
 
-if($_COOKIE['stage']){
-	switch($_COOKIE['stage']){
+if($_SESSION['stage']){
+	switch($_SESSION['stage']){
 		case 'waiting': /** 等待中 **/
 			HTML("module/wait.html");
 			break;
 		case 'playing': /** 遊戲中 **/
-		
 			HTML("module/play_game.html");
 			break;
 		case 'ending': /** 遊戲結束 **/
@@ -17,14 +16,16 @@ if($_COOKIE['stage']){
 	}
 }
 else{ 
-/** 創建房間 **/
-	HTML("module/game_create.html");
+	if($_GET['roomId']){ /** 進入遊戲房 **/
+		HTML("module/enter_room.html");
+	}
+	else{ /** 創建房間 **/
+		HTML("module/game_create.html");
+	}	
 }
 function HTML($target){ /** 顯示網頁 **/
 	if(is_file($target))
 		readfile($target);
-}
-function WAITING(){
 }
 
 ?>

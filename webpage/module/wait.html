@@ -1,3 +1,6 @@
+<?php
+require_once("wait.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,30 +8,40 @@
 	<title>請等待</title>
 </head>
 <body>
-	<center>
-	<br>如果你是房主請在人員到齊後按下開始，</br>
-	<br>若不是的話請等待房主開始遊戲。</br>
 	
+<!--
 	
 	<table border=1>
-　 <tr>
-　　 <th><div class="display"><input type="text" readonly size="18" id="a" value="等待中" ></div></th>
-　　 <th><div class="display"><input type="text" readonly size="18" id="a" value="等待中"></div></th>
-	 <th><div class="display"><input type="text" readonly size="18" id="a" value="等待中"></div></th>
-	 <th><div class="display"><input type="text" readonly size="18" id="a" value="等待中"></div></th>
-　 </tr>
-　 <tr>
-　　 <th><div class="display"><input type="text" readonly size="18" id="a" value="等待中"></div></th>
-	 <th><div class="display"><input type="text" readonly size="18" id="a" value="等待中"></div></th>
-	 <th><div class="display"><input type="text" readonly size="18" id="a" value="等待中"></div></th>　　 
-	 <th><div class="display"><input type="text" readonly size="18" id="a" value="等待中"></div></th>
+　 	<tr>
+	　　<div class="display"><input type="text" readonly size="18" id="a" value="等待中"></div></th>
+		 <th><div class="display"><input type="text" readonly size="18" id="a" value="等待中"></div></th>
+		 <th><div class="display"><input type="text" readonly size="18" id="a" value="等待中"></div></th>
+　 	</tr>
+　 	<tr>
+	　　<div class="display"><input type="text" readonly size="18" id="a" value="等待中"></div>
+		 <div class="display"><input type="text" readonly size="18" id="a" value="等待中"></div>
+		 <div class="display"><input type="text" readonly size="18" id="a" value="等待中"></div>　　 
+		 <div class="display"><input type="text" readonly size="18" id="a" value="等待中"></div>
 　  </tr>
 	</table>
-	
-	<br><input type="button" value=" 開始 " onclick=''></br>
-	<br><input type="button" value=" 重新整理 " onclick=''></br>
-	
+-->
+	<center>
+	<table border=1>
+		<tr>
+			<td class="display"><?php echo $name[0]; ?></td>
+			<td class="display"><?php echo $name[1]; ?></td>
+			<td class="display"><?php echo $name[2]; ?></td>
+			<td class="display"><?php echo $name[3]; ?></td>
+		</tr>
+		<tr>
+			<td class="display"><?php echo $name[4]; ?></td>
+			<td class="display"><?php echo $name[5]; ?></td>
+			<td class="display"><?php echo $name[6]; ?></td>
+			<td class="display"><?php echo $name[7]; ?></td>
+		</tr>
+	</table>
+	<br><input type="button" value=" 準備完成 " onclick=''></br>
 	
 	</center>
-	</body>
+</body>
 </html>
