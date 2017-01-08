@@ -15,12 +15,12 @@ class RoomHashGenerator{
     }
 
     function generate_hash(){
-        return md5($name.json_encode($settings));
+        return md5($this->name.json_encode($this->settings));
     }
 
     function send_row(){
         $db = new MySQLConnect();
-        $db->save_room($name, $settings, $hash);
+        $db->save_room($this->name, $this->settings, $this->hash);
     }
 }
 ?>
