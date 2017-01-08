@@ -14,7 +14,7 @@ class MySQLConnect{
         $this->user = $user;
         $this->password = $password;
         $this->database = $database;
-        $this->dbh = sql_connect;
+        $this->dbh = $this->sql_connect();
     }
 
     function sql_connect(){
