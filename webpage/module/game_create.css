@@ -1,0 +1,36 @@
+center{
+	position: relative;
+	box-sizing: border-box;
+	width: 100%;
+	max-width: 500px;
+	margin: auto;
+	top: 50px;
+	padding: 20px;
+	font-size: 20px;
+	box-shadow: 0 0 2px rgba(0, 0, 0, .4);
+	border-radius: 3px;
+	background: #eef;
+}
+
+
+.display {
+
+    outline: medium none;
+    height: 30px;
+    padding: 0px;
+    text-align: center;
+	font-family:sans-serif;
+	font-weight:bold;
+	border-radius:7px;
+	border:0px solid #737373;
+	background-color:#EDB9A3;
+	color:#8B1E3F;
+	display:inline-block;
+}.display:hover {
+	background-color:#F77185;
+}.display:active {
+	background-color:#F06543;
+}.display:disabled {
+	background-color:#AAAAAA;
+    color:#E0E5D5;
+}
