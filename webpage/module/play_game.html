@@ -60,6 +60,7 @@ require_once("play_game.php");
                 $("<img />", { src: $canvas[0].toDataURL(),
                     "class": "output"
                 }));
+                $("#send").unbind("click");
                 $("#send").val("已送出!請等待其他玩家");
             });
             $("#clean").click(function(){
@@ -75,7 +76,7 @@ require_once("play_game.php");
 	<input type="button" id="send" value="送出" />
     <input type="button" id="clean" value="清除" />
     <div class="showPic">
-        
+        <?php echo showPic();?>
     </div>
 </body>
 </html>

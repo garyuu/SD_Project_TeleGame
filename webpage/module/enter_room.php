@@ -1,5 +1,7 @@
 <?php
-require_once("../function/session_manager.php");
-$stage = new SessionManager();
-if($stage->i)
+
+$_SESSION['name'] = $_POST['name'];
+$_SESSION['stage'] = "wait";
+header("Location:../index.php");
+exit();
 ?>
