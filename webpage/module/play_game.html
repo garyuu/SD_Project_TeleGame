@@ -24,6 +24,39 @@ require_once("play_game.php");
         
     </style>
 	<script>
+        var mySocket;
+        var alreadySend = false;
+
+        mySokcet.onmessage = function(e){ 
+            $("#clean").trigger("click");
+            Change(e);
+        };
+
+        function Init(){
+            mySocket = new WebSocket();
+        }
+        function Send(){
+            if(alreadySend){
+            }
+            else{
+                var canvas = $("#cSketchPad");
+                var picUrl = canvas[0].toDataURL('image/jpeg');
+                mySocket.send( picUrl );
+                $("#send").val("已送出!請等待其他玩家");
+            }
+        }
+        function Change(e){
+            $("#send").val("送出");
+            $("#showPic").removeChild($("#Picture"));
+            $("#showPic").html(
+                $("<img />", { src: e,
+                    "class": "Picture"
+                })
+            );
+        }
+
+
+//---------------------------- Jquery
         $(function () {
             p_color = "black";
             p_width = 4;
@@ -55,14 +88,7 @@ require_once("play_game.php");
                 drawMode = false;
             });
             //利用.toDataqURL()將繪圖結果轉成圖檔
-            $("#send").click(function () {
-                $("#dOutput").html(
-                $("<img />", { src: $canvas[0].toDataURL(),
-                    "class": "output"
-                }));
-                $("#send").unbind("click");
-                $("#send").val("已送出!請等待其他玩家");
-            });
+            $("#send").click(Send);
             $("#clean").click(function(){
                 ctx.clearRect(0, 0, $canvas.width(), $canvas.height());
             });
